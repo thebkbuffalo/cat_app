@@ -9,6 +9,9 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
+
+
+# setup to work through docker locally. removed any testing/prod database setup as this isn't going to prod and those were throwing some errors
 default: &default
   adapter: mysql2
   encoding: utf8mb4
@@ -20,8 +23,8 @@ default: &default
 development:
   <<: *default
   database: cat_app_development
-  # host: 'host.docker.internal'
-  # port: 3306
+  host: 'host.docker.internal'
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
