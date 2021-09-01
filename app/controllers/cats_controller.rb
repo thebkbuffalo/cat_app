@@ -12,7 +12,7 @@ class CatsController < ApplicationController
   end
 
   def create
-    cat = Cat.new(image: cat_params)
+    cat = Cat.new(image: params[:image])
     if cat.save
       render json: {status: 200, message: "cat img saved"}
     else
@@ -22,16 +22,15 @@ class CatsController < ApplicationController
   end
 
   def update
-
+    binding.pry
   end
 
   def destroy
-    binding.pry
-    
-  end
-
-  private
-    def cat_params
-      params.permit(:image).require(:image)
+    @cat = Cat.find(params[:id])
+    if @cat.destroy
+      render json: {status: 200, message: 'cat img deleted'}
+    else
+      render json: {status: 200, message: 'something went wrong'}
     end
+  end
 end
