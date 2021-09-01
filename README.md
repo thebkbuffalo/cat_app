@@ -9,3 +9,5 @@ How to get started:
 - run docker-compose up
 - run docker-compose run web rake db:create to set up your database
 - CONGRATULATIONS your cat image api is ready to CRUD some cats.
+
+- for testing I used a combo of a (very) basic html front end that connected to localhost:3000 with CORS setup to accept all traffic on the rails side. I also used the Postman app for some localhost testing.
